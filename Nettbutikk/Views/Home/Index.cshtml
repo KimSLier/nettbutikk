@@ -1,0 +1,19 @@
+﻿@model List<NettButikk.Model.Produkt>
+
+<div>Produkter</div>
+
+<div>
+    <ul>
+        @foreach (var item in Model)
+        {
+            <li>
+                @Html.DisplayFor(modelItem => item.navn)
+                <br />
+                @Html.DisplayFor(modelItem => item.pris)
+                <br />
+
+            </li>
+        }
+    </ul>
+
+</div>
