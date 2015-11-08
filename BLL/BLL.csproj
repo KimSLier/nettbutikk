@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="BrukerBLL.cs" />
     <Compile Include="BrukerInfoBLL.cs" />
+    <Compile Include="LoggBLL.cs" />
     <Compile Include="OrdrerBLL.cs" />
     <Compile Include="ProduktBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

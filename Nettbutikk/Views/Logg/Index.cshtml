@@ -1,0 +1,40 @@
+﻿@model IEnumerable<NettButikk.Model.LoggModel>
+
+@{
+    ViewBag.Title = "Logg";
+}
+
+<h2>Logg</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Tidspunkt)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Bruker)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Handling)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tidspunkt)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Bruker)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Handling)
+        </td>
+        
+    </tr>
+}
+
+</table>
+
+@Html.ActionLink("Tilbake til admin", "Index", "Admin") 

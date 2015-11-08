@@ -52,6 +52,7 @@
     <Compile Include="BrukerDAL.cs" />
     <Compile Include="BrukerInfoDAL.cs" />
     <Compile Include="DBContext.cs" />
+    <Compile Include="LoggDAL.cs" />
     <Compile Include="OrdrerDAL.cs" />
     <Compile Include="ProduktDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

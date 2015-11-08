@@ -132,6 +132,7 @@
     <Compile Include="Controllers\BrukerController.cs" />
     <Compile Include="Controllers\BrukerInfoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoggController.cs" />
     <Compile Include="Controllers\OrdreController.cs" />
     <Compile Include="Controllers\ProdukterController.cs" />
     <Compile Include="Global.asax.cs">
@@ -186,6 +187,7 @@
     <Content Include="Views\Produkter\OppdaterProdukt.cshtml" />
     <Content Include="Views\Produkter\DetaljProdukt.cshtml" />
     <Content Include="Views\Ordre\Index.cshtml" />
+    <Content Include="Views\Logg\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -19,9 +19,18 @@ namespace Nettbutikk.Controllers
 
         public ActionResult Send(int id)
         {
-            OrdrerBLL ordreBll = new OrdrerBLL();
-            ordreBll.SendOrdre(id);
-            return View("Index");
+            try
+            {
+                OrdrerBLL ordreBll = new OrdrerBLL();
+                ordreBll.SendOrdre(id);
+                LoggBLL loggBll = new LoggBLL();
+                loggBll.Lagre(new LoggModel() {Tidspunkt = DateTime.Now, Bruker = Session["Brukernavn"].ToString(), Handling = "Sendt ordre" });
+                return RedirectToAction("Index", "Ordre");
+            }
+            catch {
+                return RedirectToAction("Index", "Ordre");
+            }
+            
         }
 
         public ActionResult Bestill(int id)

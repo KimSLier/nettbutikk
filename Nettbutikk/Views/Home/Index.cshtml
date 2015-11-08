@@ -11,7 +11,10 @@
                 <br />
                 @Html.DisplayFor(modelItem => item.pris)
                 <br />
+                @if (HttpContext.Current.Session["LoggetInn"] != null && (bool)HttpContext.Current.Session["LoggetInn"] == true)
+                {
                 @Html.ActionLink("Detaljer", "DetaljProdukt", "Produkter", new { id = item.id }, null) 
+                }
             </li>
         }
     </ul>

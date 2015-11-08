@@ -42,6 +42,8 @@ namespace Nettbutikk.Controllers
             }
             ProduktBLL produktBll = new ProduktBLL();
             var produkt = produktBll.SlettProdukt(id);
+            LoggBLL loggBll = new LoggBLL();
+            loggBll.Lagre(new LoggModel() { Tidspunkt = DateTime.Now, Bruker = Session["Brukernavn"].ToString(), Handling = "Slettet produkt id: " + id });
             return RedirectToAction("Index");
         }
 
@@ -66,6 +68,9 @@ namespace Nettbutikk.Controllers
             {
                 ProduktBLL produktBll = new ProduktBLL();
                 produktBll.RegistrerProdukt(produkt);
+
+                LoggBLL loggBll = new LoggBLL();
+                loggBll.Lagre(new LoggModel() { Tidspunkt = DateTime.Now, Bruker = Session["Brukernavn"].ToString(), Handling = "Registrert produkt: " + produkt.navn });
                 return RedirectToAction("Index");
             }
             catch {

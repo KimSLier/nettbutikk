@@ -25,7 +25,7 @@ namespace NettButikk.DAL
                     };
                     db.Ordrer.Add(ordrer);
                     db.SaveChanges();
-                    return false;
+                    return true;
                 }
             }
             catch {
@@ -42,7 +42,7 @@ namespace NettButikk.DAL
                     var ordre = db.Ordrer.Where(p => p.ID == ordreId).FirstOrDefault();
                     ordre.Sendt = "true";
                     db.SaveChanges();
-                    return false;
+                    return true;
                 }
             }
             catch
