@@ -21,6 +21,18 @@ namespace Nettbutikk.Controllers
             return View("index", produkt.hentAlle());
         }
 
+        public ActionResult DetaljProdukt(int id)
+        {
+            if (Session["LoggetInn"] == null)
+            {
+                RedirectToAction("Index", "Home");
+            }
+            
+            ProduktBLL produktBll = new ProduktBLL();
+            var produkt = produktBll.HentProdukt(id);
+            return View(produkt);
+        }
+
         //Slett produkt
         public ActionResult SlettProdukt(int id)
         {

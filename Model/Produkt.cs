@@ -12,9 +12,11 @@ namespace NettButikk.Model
     {
         public int id { get; set; }
 
+        [Required(ErrorMessage = "Må ha navn")]
         [Display(Name = "Vare")]
         public string navn { get; set; }
 
+        [Required(ErrorMessage = "Må ha pris")]
         [Display(Name = "Pris")]
         public int pris { get; set; }
     }

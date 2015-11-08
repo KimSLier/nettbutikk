@@ -1,0 +1,44 @@
+﻿@model IEnumerable<NettButikk.Model.Ordre>
+
+@{
+    ViewBag.Title = "Ordre";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Dato)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Betalt)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sendt)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Dato)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Betalt)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sendt)
+        </td>
+        <td>
+            @Html.ActionLink("Send", "Send", new { id=item.ID }) |
+           
+        </td>
+    </tr>
+}
+
+</table>

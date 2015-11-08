@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Bruker.cs" />
     <Compile Include="BrukerInfo.cs" />
+    <Compile Include="Ordre.cs" />
     <Compile Include="Produkt.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
