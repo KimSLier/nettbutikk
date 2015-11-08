@@ -21,7 +21,20 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Produkter", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Logg inn", "Index", "Bruker")</li>
+                    @if (HttpContext.Current.Session["LoggetInn"] != null && (bool)HttpContext.Current.Session["LoggetInn"] == true)
+                    {
+                        <li>@Html.ActionLink("Du er logget inn som: " + HttpContext.Current.Session["Brukernavn"].ToString(), "Index", "Bruker")</li>
+                    }
+                    else
+                    {
+                        <li>@Html.ActionLink("Logg inn", "Index", "Bruker")</li>
+                    }
+
+                    @if (HttpContext.Current.Session["Rolle"] != null && HttpContext.Current.Session["Rolle"].ToString() == "admin")
+                    {
+                        <li>@Html.ActionLink("Admin", "Index", "Admin")</li>
+                    }
+                    
                 </ul>
             </div>
         </div>

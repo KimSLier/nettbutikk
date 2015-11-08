@@ -11,8 +11,7 @@ namespace NettButikk.DAL
         [Key]
         public string Brukernavn { get; set; }
         public byte[] Passord { get; set; }
-
-        public virtual Brukerinformasjon BrukerInfo { get; set; }
+        public string Rolle { get; set; }
     }
 
     public class Brukerinformasjon
@@ -23,7 +22,7 @@ namespace NettButikk.DAL
         public string Adresse { get; set; }
         public string Postnr { get; set; }
         public string Epost { get; set; }
-        public string Brukernavn { get; set; }
+        public virtual Brukere Bruker { get; set; }
 
         public virtual List<Ordrer> Ordrer { get; set; }
     }

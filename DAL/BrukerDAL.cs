@@ -9,6 +9,7 @@ namespace NettButikk.DAL
 {
     public class BrukerDAL
     {
+        //registrerer ny bruker.
         public bool RegistrerBruker(Bruker innBruker) {
             try
             {
@@ -18,6 +19,13 @@ namespace NettButikk.DAL
                     byte[] passordDb = lagHash(innBruker.Passord);
                     nyBruker.Passord = passordDb;
                     nyBruker.Brukernavn = innBruker.Navn;
+                    if (innBruker.Navn.ToLower().Equals("admin"))
+                    {
+                        nyBruker.Rolle = "admin";
+                    }
+                    else {
+                        nyBruker.Rolle = "kunde";
+                    }
                     db.Brukere.Add(nyBruker);
                     db.SaveChanges();
                     return true;
@@ -29,6 +37,7 @@ namespace NettButikk.DAL
             
         }
 
+        //Prøver å logge brukeren inn.
         public bool LoggInn(Bruker innBruker) {
             try
             {
@@ -39,6 +48,49 @@ namespace NettButikk.DAL
             }
         }
 
+        //Henter brukerens rolle
+        public string BrukerRolle(Bruker innBruker)
+        {
+            try
+            {
+                using (var db = new ButikkContext())
+                {
+                    
+                    byte[] passordDb = lagHash(innBruker.Passord);
+                    var bruker = db.Brukere.Where(b => b.Brukernavn == innBruker.Navn && b.Passord == passordDb).FirstOrDefault();
+                    return bruker.Rolle;
+                }
+            }
+            catch
+            {
+                return "kunde";
+            }
+
+        }
+
+        //Oppdaterer brukerens rolle
+        public bool OppdaterBrukerRolle(Bruker innBruker, string rolle)
+        {
+            try
+            {
+                using (var db = new ButikkContext())
+                {
+
+                    byte[] passordDb = lagHash(innBruker.Passord);
+                    var bruker = db.Brukere.Where(b => b.Brukernavn == innBruker.Navn && b.Passord == passordDb).FirstOrDefault();
+                    bruker.Rolle = rolle;
+                    db.SaveChanges();
+                    return true;
+                }
+            }
+            catch
+            {
+                return false;
+            }
+
+        }
+
+        //Private metoder
         private static byte[] lagHash(string innPassord)
         {
             byte[] innData, utData;

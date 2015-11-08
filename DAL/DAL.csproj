@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BrukerDAL.cs" />
+    <Compile Include="BrukerInfoDAL.cs" />
     <Compile Include="DBContext.cs" />
     <Compile Include="ProduktDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

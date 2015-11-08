@@ -129,6 +129,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\BrukerController.cs" />
+    <Compile Include="Controllers\BrukerInfoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -173,6 +174,9 @@
     <Content Include="Views\Bruker\Index.cshtml" />
     <Content Include="Views\Bruker\Registrer.cshtml" />
     <Content Include="Views\Bruker\InnLoggetSide.cshtml" />
+    <Content Include="Views\BrukerInfo\RegistrerBrukerInfo.cshtml" />
+    <Content Include="Views\BrukerInfo\OppdaterBrukerInfo.cshtml" />
+    <Content Include="Views\BrukerInfo\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -3,5 +3,14 @@
     ViewBag.Title = "InnLoggetSide";
 }
 
-<h2>Du er logget inn</h2>
+<h2>Velkommen @HttpContext.Current.Session["Brukernavn"].ToString()</h2>
+
+@if (ViewBag.HarInfo)
+{
+    @Html.ActionLink("Brukerinformasjon", "Index", "BrukerInfo")
+}
+else
+{
+    @Html.ActionLink("Registrer brukerinformasjon", "RegistrerBrukerInfo", "BrukerInfo")
+}
 

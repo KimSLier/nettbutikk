@@ -32,7 +32,9 @@ namespace Nettbutikk.Controllers
             var erInne = brukerBll.LoggInn(innBruker);
             if (erInne)
             {
+                Session["Rolle"] = brukerBll.HentBrukerRolle(innBruker);
                 Session["LoggetInn"] = true;
+                Session["Brukernavn"] = innBruker.Navn;
                 ViewBag.Innlogget = true;
                 return RedirectToAction("InnLoggetSide");
             }
@@ -62,6 +64,9 @@ namespace Nettbutikk.Controllers
                     var result = brukerBll.RegistrerBruker(innBruker);
                 if (result)
                 {
+                    Session["Rolle"] = brukerBll.HentBrukerRolle(innBruker);
+                    Session["LoggetInn"] = true;
+                    Session["Brukernavn"] = innBruker.Navn;
                     return RedirectToAction("InnLoggetSide"); //redirect til side for å legge inn brukerInfo
                 }
                 else {
@@ -82,6 +87,16 @@ namespace Nettbutikk.Controllers
                 bool loggetInn = (bool)Session["LoggetInn"];
                 if (loggetInn)
                 {
+                    ViewBag.HarInfo = false;
+                    //Sjekker om bruker har registrert brukerinformasjon
+                    string brukernavn = Session["Brukernavn"].ToString();
+                    if (brukernavn != string.Empty || brukernavn != null) {
+                        var brukerInfoBll = new BrukerInfoBLL();
+                        bool harInfo = brukerInfoBll.BrukerHarInfo(brukernavn);
+                        if (harInfo) {
+                            ViewBag.HarInfo = true;
+                        }
+                    }
                     return View();
                 }
             }

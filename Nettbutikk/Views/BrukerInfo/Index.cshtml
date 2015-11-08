@@ -1,0 +1,66 @@
+﻿@model NettButikk.Model.BrukerInfo
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<div>
+    <h4>BrukerInfo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Fornavn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fornavn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Etternavn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Etternavn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Adresse)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Adresse)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Postnr)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Postnr)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Epost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Epost)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Brukernavn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Brukernavn)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Oppdater", "OppdaterBrukerInfo") |
+    @Html.ActionLink("Tilbake til bruker", "Index", "Bruker")
+</p>

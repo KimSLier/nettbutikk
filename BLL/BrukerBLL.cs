@@ -20,5 +20,10 @@ namespace NettButikk.BLL
             var brukerDAL = new BrukerDAL();
             return brukerDAL.LoggInn(innBruker);
         }
+
+        public string HentBrukerRolle(Bruker innBruker) {
+            var brukerDAL = new BrukerDAL();
+            return brukerDAL.BrukerRolle(innBruker);
+        }
     }
 }
