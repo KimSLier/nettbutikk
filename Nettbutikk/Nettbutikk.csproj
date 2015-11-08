@@ -172,6 +172,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Bruker\Index.cshtml" />
     <Content Include="Views\Bruker\Registrer.cshtml" />
+    <Content Include="Views\Bruker\InnLoggetSide.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

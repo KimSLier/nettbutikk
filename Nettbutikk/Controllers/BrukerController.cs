@@ -28,20 +28,19 @@ namespace Nettbutikk.Controllers
         [HttpPost]
         public ActionResult Index(Bruker innBruker)
         {
-            if ((innBruker.Navn != string.Empty || innBruker.Navn != null) && 
-                (innBruker.Passord != string.Empty || innBruker.Passord != null))
+            var brukerBll = new BrukerBLL();
+            var erInne = brukerBll.LoggInn(innBruker);
+            if (erInne)
             {
                 Session["LoggetInn"] = true;
                 ViewBag.Innlogget = true;
-                return View();
+                return RedirectToAction("InnLoggetSide");
             }
-            else
-            {
+            else {
                 Session["LoggetInn"] = false;
                 ViewBag.Innlogget = false;
                 return View();
             }
-
         }
 
         public ActionResult Registrer()
@@ -63,7 +62,7 @@ namespace Nettbutikk.Controllers
                     var result = brukerBll.RegistrerBruker(innBruker);
                 if (result)
                 {
-                    return RedirectToAction("Index");
+                    return RedirectToAction("InnLoggetSide"); //redirect til side for å legge inn brukerInfo
                 }
                 else {
                     return View();

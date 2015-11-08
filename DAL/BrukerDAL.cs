@@ -29,6 +29,16 @@ namespace NettButikk.DAL
             
         }
 
+        public bool LoggInn(Bruker innBruker) {
+            try
+            {
+                return Bruker_i_DB(innBruker);
+            }
+            catch {
+                return false;
+            }
+        }
+
         private static byte[] lagHash(string innPassord)
         {
             byte[] innData, utData;

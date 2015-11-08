@@ -15,5 +15,10 @@ namespace NettButikk.BLL
             var brukerDAL = new BrukerDAL();
             return brukerDAL.RegistrerBruker(innBruker);
         }
+
+        public bool LoggInn(Bruker innBruker) {
+            var brukerDAL = new BrukerDAL();
+            return brukerDAL.LoggInn(innBruker);
+        }
     }
 }
