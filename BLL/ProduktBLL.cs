@@ -12,9 +12,34 @@ namespace NettButikk.BLL
     {
         public List<Produkt> hentAlle()
         {
-            var ProduktDAL = new ProduktDAL();
-            List<Produkt> alleProdukter = ProduktDAL.hentAlle();
+            var produktDAL = new ProduktDAL();
+            List<Produkt> alleProdukter = produktDAL.hentAlle();
             return alleProdukter;
+        }
+
+        public bool RegistrerProdukt(Produkt produkt)
+        {
+            var produktDAL = new ProduktDAL();
+            return produktDAL.RegistrerProdukt(produkt);
+        }
+
+        public bool OppdaterProdukt(Produkt produkt)
+        {
+            var produktDAL = new ProduktDAL();
+            return produktDAL.OppdaterProdukt(produkt);
+
+        }
+
+        public bool SlettProdukt(int produkt)
+        {
+            var produktDAL = new ProduktDAL();
+            return produktDAL.SlettProdukt(produkt);
+
+        }
+
+        public Produkt HentProdukt(int id) {
+            var produktDAL = new ProduktDAL();
+            return produktDAL.HentProdukt(id);
         }
     }
 }

@@ -128,9 +128,11 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\BrukerController.cs" />
     <Compile Include="Controllers\BrukerInfoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ProdukterController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -177,6 +179,10 @@
     <Content Include="Views\BrukerInfo\RegistrerBrukerInfo.cshtml" />
     <Content Include="Views\BrukerInfo\OppdaterBrukerInfo.cshtml" />
     <Content Include="Views\BrukerInfo\Index.cshtml" />
+    <Content Include="Views\Produkter\Index.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Produkter\RegistrerProdukt.cshtml" />
+    <Content Include="Views\Produkter\OppdaterProdukt.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -38,6 +38,7 @@ namespace NettButikk.DAL
         public int ID { get; set; }
         public DateTime? Dato { get; set; }
         public string Betalt { get; set; }
+        public string Sendt { get; set; }
 
         public virtual List<Produkter> Produkter { get; set; }
         public virtual Betalingmetoder Betalingsmetode { get; set; }
@@ -48,6 +49,14 @@ namespace NettButikk.DAL
         public int ID { get; set; }
         public string Navn { get; set; }
         public int Pris { get; set; }
+    }
+
+    public class Logg
+    {
+        public int ID { get; set; }
+        public DateTime Tidspunkt { get; set; }
+        public string Bruker { get; set; }
+        public string Handling { get; set; }
     }
 
     public class ButikkContext : DbContext
@@ -63,6 +72,7 @@ namespace NettButikk.DAL
         public DbSet<Betalingmetoder> Betalingmetoder { get; set; }
         public DbSet<Ordrer> Ordrer { get; set; }
         public DbSet<Produkter> Produkter { get; set; }
+        public DbSet<Logg> Logg { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
